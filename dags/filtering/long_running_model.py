@@ -1,21 +1,21 @@
 """
 This DAG runs only the long-running model which is designed to execute
-a SQL query for approximately 15 minutes on Snowflake.
+a SQL query for approximately 15 minutes on PostgreSQL.
 """
 
 from datetime import datetime
 
 from cosmos import DbtDag, ProjectConfig, RenderConfig
-from cosmos.profiles import SnowflakeUserPasswordProfileMapping
+from cosmos.profiles import PostgresUserPasswordProfileMapping
 
 from include.constants import jaffle_shop_path, venv_execution_config
 
-# Create a profile config for Snowflake
-snowflake_profile = {
-    "profile_name": "snowflake_profile",
+# Create a profile config for PostgreSQL
+postgres_profile = {
+    "profile_name": "postgres_profile",
     "target_name": "dev",
-    "profile_mapping": SnowflakeUserPasswordProfileMapping(
-        conn_id="snowflake_sandbox",  # This should match an existing Snowflake connection
+    "profile_mapping": PostgresUserPasswordProfileMapping(
+        conn_id="postgres_default",  # This should match an existing PostgreSQL connection
         profile_args={"schema": "dbt", "threads": 4},
     ),
 }
@@ -23,7 +23,7 @@ snowflake_profile = {
 # Create a DAG that only runs the long-running model
 long_running_model = DbtDag(
     project_config=ProjectConfig(jaffle_shop_path),
-    profile_config=snowflake_profile,
+    profile_config=postgres_profile,
     execution_config=venv_execution_config,
     # Only select our long-running model
     render_config=RenderConfig(
@@ -39,6 +39,6 @@ long_running_model = DbtDag(
         "retries": 0,  # No retries for this long-running task
         "execution_timeout": None,  # No timeout, let it run as long as needed
     },
-    tags=["long_running", "snowflake", "dbt"],
+    tags=["long_running", "postgres", "dbt"],
     doc_md=__doc__,
 )
