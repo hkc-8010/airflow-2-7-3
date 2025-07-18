@@ -14,7 +14,7 @@ dbt_profile_overrides = DbtDag(
         target_name="dev",
         profile_mapping=PostgresUserPasswordProfileMapping(
             conn_id="airflow_metadata_db",
-            profile_args={"schema": "my_dbt_schema"},
+            profile_args={"schema": "public"},
         ),
     ),
     execution_config=venv_execution_config,
