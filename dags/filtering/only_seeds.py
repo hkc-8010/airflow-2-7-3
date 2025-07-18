@@ -11,6 +11,7 @@ only_seeds = DbtDag(
     profile_config=airflow_db,
     execution_config=venv_execution_config,
     # Render config with filtering and performance settings
+    # Use select instead of models (to avoid deprecation warning)
     render_config=RenderConfig(select=["path:seeds"], load_method=LoadMode.DBT_LS),
     # normal dag parameters
     schedule_interval=None,
