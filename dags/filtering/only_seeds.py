@@ -11,8 +11,13 @@ only_seeds = DbtDag(
     profile_config=airflow_db,
     execution_config=venv_execution_config,
     # Render config with filtering and performance settings
-    # Use select instead of models (to avoid deprecation warning)
-    render_config=RenderConfig(select=["path:seeds"], load_method=LoadMode.DBT_LS),
+    # Using the select parameter instead of models
+    render_config=RenderConfig(
+        select=["path:seeds"],
+        load_method=LoadMode.DBT_LS,
+        # Make sure to use select parameter in Cosmos
+        dbt_select_parameter_name="select",
+    ),
     # normal dag parameters
     schedule_interval=None,
     start_date=datetime(2023, 1, 1),

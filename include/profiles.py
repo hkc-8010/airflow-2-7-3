@@ -10,11 +10,10 @@ airflow_db = ProfileConfig(
     profile_mapping=PostgresUserPasswordProfileMapping(
         conn_id="airflow_metadata_db",
         profile_args={
-            "schema": "public",
-            # Add quotes around database name to handle hyphens properly
-            "dbname": '"frigid-relativity-1982-pgbouncer-metadata"',
-            # Set search_path to public to ensure tables are created in the correct schema
-            "options": "-c search_path=public",
+            # Use airflow as the schema name instead of public
+            "schema": "airflow",
+            # Set search_path to airflow to ensure tables are created in the correct schema
+            "options": "-c search_path=airflow",
         },
     ),
 )
