@@ -8,6 +8,6 @@ airflow_db:
       password: XKwtMF1Sf1k8GwVJlMyEg8xPwgi5soz5
       port: 6543
       dbname: frigid-relativity-1982-pgbouncer-metadata
-      schema: public
+      schema: airflow
       threads: 4
       sslmode: disable
