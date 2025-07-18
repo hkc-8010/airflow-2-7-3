@@ -1,17 +1,20 @@
 from datetime import datetime
 
-from cosmos import DbtDag, ProjectConfig, RenderConfig
+from cosmos import DbtDag, RenderConfig
+from cosmos.constants import LoadMode, InvocationMode
 
 from include.profiles import airflow_db
-from include.constants import jaffle_shop_path, venv_execution_config
+from include.constants import jaffle_shop_project_config, venv_execution_config
 
 only_seeds = DbtDag(
-    project_config=ProjectConfig(jaffle_shop_path),
+    project_config=jaffle_shop_project_config,
     profile_config=airflow_db,
     execution_config=venv_execution_config,
-    # new render config
+    # Render config with filtering and performance settings
     render_config=RenderConfig(
         select=["path:seeds"],
+        load_method=LoadMode.DBT_LS,
+        invocation_mode=InvocationMode.SUBPROCESS,
     ),
     # normal dag parameters
     schedule_interval=None,

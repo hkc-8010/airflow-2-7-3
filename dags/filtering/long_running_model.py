@@ -5,8 +5,9 @@ a SQL query for approximately 15 minutes on PostgreSQL.
 
 from datetime import datetime
 
-from cosmos import DbtDag, ProjectConfig, RenderConfig, ProfileConfig
+from cosmos import DbtDag, ProfileConfig, RenderConfig, ProjectConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.constants import LoadMode, InvocationMode
 
 from include.constants import jaffle_shop_path, venv_execution_config
 
@@ -16,7 +17,7 @@ postgres_profile = ProfileConfig(
     target_name="dev",
     profile_mapping=PostgresUserPasswordProfileMapping(
         conn_id="postgres_default",  # This should match an existing PostgreSQL connection
-        profile_args={"schema": "dbt", "threads": 4},
+        profile_args={"schema": "public", "threads": 4},
     ),
 )
 
@@ -25,9 +26,11 @@ long_running_model = DbtDag(
     project_config=ProjectConfig(jaffle_shop_path),
     profile_config=postgres_profile,
     execution_config=venv_execution_config,
-    # Only select our long-running model
+    # Render config with filtering and performance settings
     render_config=RenderConfig(
         select=["custom.long_running_query"],
+        load_method=LoadMode.DBT_LS,
+        invocation_mode=InvocationMode.SUBPROCESS,
     ),
     # normal dag parameters
     schedule_interval=None,  # Manual triggers only

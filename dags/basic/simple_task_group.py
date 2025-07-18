@@ -3,11 +3,11 @@ from datetime import datetime
 from airflow.decorators import dag
 from airflow.operators.empty import EmptyOperator
 
-
-from cosmos import DbtTaskGroup, ProjectConfig
+from cosmos import DbtTaskGroup, RenderConfig
+from cosmos.constants import LoadMode, InvocationMode
 
 from include.profiles import airflow_db
-from include.constants import jaffle_shop_path, venv_execution_config
+from include.constants import jaffle_shop_project_config, venv_execution_config
 
 
 @dag(
@@ -24,9 +24,12 @@ def simple_task_group() -> None:
 
     jaffle_shop = DbtTaskGroup(
         group_id="my_jaffle_shop_project",
-        project_config=ProjectConfig(jaffle_shop_path),
+        project_config=jaffle_shop_project_config,
         profile_config=airflow_db,
         execution_config=venv_execution_config,
+        render_config=RenderConfig(
+            load_method=LoadMode.DBT_LS, invocation_mode=InvocationMode.SUBPROCESS
+        ),
     )
 
     post_dbt = EmptyOperator(task_id="post_dbt")
