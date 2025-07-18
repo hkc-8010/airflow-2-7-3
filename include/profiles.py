@@ -12,7 +12,6 @@ airflow_db = ProfileConfig(
         profile_args={
             # Use airflow as the schema name instead of public
             "schema": "airflow",
-
         },
     ),
 )
