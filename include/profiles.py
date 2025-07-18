@@ -12,8 +12,7 @@ airflow_db = ProfileConfig(
         profile_args={
             # Use airflow as the schema name instead of public
             "schema": "airflow",
-            # Set search_path to airflow to ensure tables are created in the correct schema
-            "options": "-c search_path=airflow",
+
         },
     ),
 )
