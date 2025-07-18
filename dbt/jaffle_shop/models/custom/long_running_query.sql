@@ -6,32 +6,45 @@
 }}
 
 /*
-This model is designed to run for a significant amount of time on PostgreSQL.
-It uses a combination of complex queries, large data generation, and
-computationally intensive operations to create a long-running process.
+This model is designed to run for approximately 15 minutes on PostgreSQL.
+It uses a combination of complex queries, data processing, and explicit pg_sleep() calls
+to ensure a consistent execution time regardless of the underlying hardware.
 
 The query:
-1. Creates a large dataset using generate_series
-2. Performs multiple complex calculations and transformations
-3. Uses heavy calculations to extend runtime
+1. Creates a moderate dataset using generate_series
+2. Performs calculations and transformations on the data
+3. Uses pg_sleep() to add controlled delays throughout execution
 */
 
 -- Set variables for our long-running query
-{% set number_of_iterations = 10 %}
+{% set number_of_iterations = 6 %}
+{% set sleep_time_per_iteration = 130 %}  -- Total ~780 seconds across iterations
+{% set initial_sleep = 60 %}              -- Initial sleep 60 seconds
+{% set final_sleep = 60 %}                -- Final sleep 60 seconds
+                                          -- Total sleep: ~15 minutes (900 seconds)
 
 WITH 
--- Generate a large dataset using PostgreSQL's generate_series
+-- Start with an initial sleep to ensure minimum execution time
+initial_wait AS (
+    SELECT 
+        pg_sleep({{ initial_sleep }}) as initial_wait_result,
+        1 as dummy_id
+),
+
+-- Generate a dataset using PostgreSQL's generate_series
 large_dataset AS (
     SELECT 
-        id,
+        g.id,
         (random() * 1000000)::int as random_value1,
         (random() * 1000000)::int as random_value2,
         (random() * 100)::int as group_id,
-        random() as random_factor
-    FROM generate_series(1, 200000) as id
+        random() as random_factor,
+        i.dummy_id  -- Join with initial_wait to ensure it runs first
+    FROM generate_series(1, 50000) as g(id)
+    CROSS JOIN initial_wait i
 ),
 
--- First computation layer with intensive calculations
+-- First computation layer with explicit sleep
 computation_1 AS (
     SELECT 
         id,
@@ -40,8 +53,10 @@ computation_1 AS (
         group_id,
         random_factor,
         SQRT(POW(random_value1, 2) + POW(random_value2, 2)) as vector_length,
-        SIN(random_value1 / 1000.0) * COS(random_value2 / 1000.0) as trig_result
+        SIN(random_value1 / 1000.0) * COS(random_value2 / 1000.0) as trig_result,
+        pg_sleep({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
     FROM large_dataset
+    WHERE id <= 10000  -- Limit for performance
 ),
 
 -- Aggregate by groups with additional computation
@@ -53,7 +68,8 @@ grouped_data AS (
         SUM(trig_result) as sum_trig,
         COUNT(*) as group_count,
         MIN(random_value1) as min_val1,
-        MAX(random_value2) as max_val2
+        MAX(random_value2) as max_val2,
+        pg_sleep({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
     FROM computation_1
     GROUP BY group_id
 ),
@@ -72,7 +88,8 @@ joined_data AS (
         g.std_length,
         g.sum_trig,
         g.group_count,
-        (c.vector_length - g.avg_length) / NULLIF(g.std_length, 0) as z_score
+        (c.vector_length - g.avg_length) / NULLIF(g.std_length, 0) as z_score,
+        pg_sleep({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
     FROM computation_1 c
     JOIN grouped_data g ON c.group_id = g.group_id
 ),
@@ -98,7 +115,12 @@ iteration_{{ i }} AS (
         avg_length,
         std_length,
         z_score,
-        ROW_NUMBER() OVER (PARTITION BY group_id ORDER BY z_score) as rank_in_group
+        ROW_NUMBER() OVER (PARTITION BY group_id ORDER BY z_score) as rank_in_group,
+        {% if i < number_of_iterations - 1 %}
+        pg_sleep({{ sleep_time_per_iteration / number_of_iterations }}) as wait_result  -- Distribute sleep across iterations
+        {% else %}
+        NULL as wait_result  -- Skip sleep in the last iteration as we'll have a final sleep
+        {% endif %}
     FROM {% if i == 0 %}joined_data{% else %}iteration_{{ i - 1 }}{% endif %}
     {% if i > 0 %}
     WHERE id % {{ 20 - i if (20 - i) > 1 else 1 }} = 0  -- progressively filter
@@ -106,8 +128,8 @@ iteration_{{ i }} AS (
 ),
 {% endfor %}
 
--- Final result with aggregation to reduce data size
-final_result AS (
+-- Pre-final step with aggregation and another sleep
+pre_final AS (
     SELECT 
         group_id,
         AVG(vector_length_adjusted) as avg_adjusted_length,
@@ -115,7 +137,8 @@ final_result AS (
         MIN(trig_result_adjusted) as min_trig_adjusted,
         MAX(trig_result_adjusted) as max_trig_adjusted,
         SUM(rank_in_group) as sum_ranks,
-        COUNT(*) as count_records
+        COUNT(*) as count_records,
+        pg_sleep({{ final_sleep }}) as final_wait_result  -- Final sleep
     FROM iteration_{{ number_of_iterations - 1 }}
     WHERE rank_in_group <= 100  -- limit final result size
     GROUP BY group_id
@@ -130,6 +153,6 @@ SELECT
     min_trig_adjusted,
     max_trig_adjusted,
     sum_ranks
-FROM final_result
+FROM pre_final
 ORDER BY group_id
 LIMIT 1000
