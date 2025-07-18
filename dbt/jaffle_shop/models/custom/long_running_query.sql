@@ -17,7 +17,7 @@ The query:
 */
 
 -- Set variables for our long-running query
-{% set number_of_iterations = 20 %}
+{% set number_of_iterations = 10 %}
 
 WITH 
 -- Generate a large dataset using PostgreSQL's generate_series
@@ -28,7 +28,7 @@ large_dataset AS (
         (random() * 1000000)::int as random_value2,
         (random() * 100)::int as group_id,
         random() as random_factor
-    FROM generate_series(1, 500000) as id
+    FROM generate_series(1, 200000) as id
 ),
 
 -- First computation layer with intensive calculations
@@ -38,10 +38,9 @@ computation_1 AS (
         random_value1,
         random_value2,
         group_id,
+        random_factor,
         SQRT(POW(random_value1, 2) + POW(random_value2, 2)) as vector_length,
-        SIN(random_value1 / 1000.0) * COS(random_value2 / 1000.0) as trig_result,
-        -- Simulate intensive calculation instead of explicit wait
-        (SELECT COUNT(*) FROM generate_series(1, 1000) WHERE random() < 0.5) as intensive_calc
+        SIN(random_value1 / 1000.0) * COS(random_value2 / 1000.0) as trig_result
     FROM large_dataset
 ),
 
@@ -66,20 +65,18 @@ joined_data AS (
         c.random_value1,
         c.random_value2,
         c.group_id,
+        c.random_factor,
         c.vector_length,
         c.trig_result,
         g.avg_length,
         g.std_length,
         g.sum_trig,
         g.group_count,
-        (c.vector_length - g.avg_length) / NULLIF(g.std_length, 0) as z_score,
-        -- Another intensive calculation to extend runtime
-        (SELECT COUNT(*) FROM generate_series(1, 1000) WHERE random() < 0.5) as intensive_calc
+        (c.vector_length - g.avg_length) / NULLIF(g.std_length, 0) as z_score
     FROM computation_1 c
     JOIN grouped_data g ON c.group_id = g.group_id
 ),
 
--- Additional iterations of processing to extend runtime
 {% for i in range(number_of_iterations) %}
 iteration_{{ i }} AS (
     SELECT 
@@ -87,52 +84,52 @@ iteration_{{ i }} AS (
         random_value1,
         random_value2,
         group_id,
+        random_factor,
+        {% if i == 0 %}
         vector_length * (1 + random() / 10) as vector_length_adjusted,
+        {% else %}
+        vector_length_adjusted * (1 + random() / 20) as vector_length_adjusted,
+        {% endif %}
+        {% if i == 0 %}
         trig_result + SIN(COALESCE(z_score, 0)) as trig_result_adjusted,
+        {% else %}
+        trig_result_adjusted + SIN(COALESCE(z_score, 0)) as trig_result_adjusted,
+        {% endif %}
         avg_length,
         std_length,
         z_score,
-        {% if i % 5 == 0 %}
-        -- Intensive calculation instead of wait
-        (SELECT COUNT(*) FROM generate_series(1, 1000) WHERE random() < 0.5) as intensive_calc,
-        {% endif %}
         ROW_NUMBER() OVER (PARTITION BY group_id ORDER BY z_score) as rank_in_group
     FROM {% if i == 0 %}joined_data{% else %}iteration_{{ i - 1 }}{% endif %}
     {% if i > 0 %}
-    WHERE id % {{ 50 - i }} = 0  -- progressively filter to reduce data volume but keep processing complex
+    WHERE id % {{ 20 - i if (20 - i) > 1 else 1 }} = 0  -- progressively filter
     {% endif %}
 ),
 {% endfor %}
 
--- Final result with one more intensive calculation
+-- Final result with aggregation to reduce data size
 final_result AS (
     SELECT 
-        id,
-        random_value1,
-        random_value2,
         group_id,
-        vector_length_adjusted,
-        trig_result_adjusted,
-        avg_length,
-        std_length,
-        z_score,
-        rank_in_group,
-        -- Final intensive calculation
-        (SELECT COUNT(*) FROM generate_series(1, 2000) WHERE random() < 0.5) as final_intensive_calc
+        AVG(vector_length_adjusted) as avg_adjusted_length,
+        AVG(z_score) as avg_z_score,
+        MIN(trig_result_adjusted) as min_trig_adjusted,
+        MAX(trig_result_adjusted) as max_trig_adjusted,
+        SUM(rank_in_group) as sum_ranks,
+        COUNT(*) as count_records
     FROM iteration_{{ number_of_iterations - 1 }}
     WHERE rank_in_group <= 100  -- limit final result size
+    GROUP BY group_id
 )
 
 -- Return a manageable result set from our long process
 SELECT 
     group_id,
-    COUNT(*) as count_records,
-    AVG(vector_length_adjusted) as avg_adjusted_length,
-    AVG(z_score) as avg_z_score,
-    MIN(trig_result_adjusted) as min_trig_adjusted,
-    MAX(trig_result_adjusted) as max_trig_adjusted,
-    SUM(rank_in_group) as sum_ranks
+    count_records,
+    avg_adjusted_length,
+    avg_z_score,
+    min_trig_adjusted,
+    max_trig_adjusted,
+    sum_ranks
 FROM final_result
-GROUP BY group_id
 ORDER BY group_id
 LIMIT 1000
