@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from cosmos import DbtDag, ProfileConfig, RenderConfig
-from cosmos.constants import LoadMode, InvocationMode
+from cosmos.constants import LoadMode
 
 from include.constants import (
     jaffle_shop_project_config,
@@ -19,9 +19,7 @@ dbt_profile_example = DbtDag(
         profiles_yml_filepath=jaffle_shop_path / "profiles.yml",
     ),
     execution_config=venv_execution_config,
-    render_config=RenderConfig(
-        load_method=LoadMode.DBT_LS, invocation_mode=InvocationMode.SUBPROCESS
-    ),
+    render_config=RenderConfig(load_method=LoadMode.DBT_LS),
     # normal dag parameters
     schedule_interval="@daily",
     start_date=datetime(2023, 1, 1),
