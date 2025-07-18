@@ -14,9 +14,7 @@ only_seeds = DbtDag(
     # Using the select parameter instead of models
     render_config=RenderConfig(
         select=["path:seeds"],
-        load_method=LoadMode.DBT_LS,
-        # Make sure to use select parameter in Cosmos
-        dbt_select_parameter_name="select",
+        load_method=LoadMode.DBT_LS
     ),
     # normal dag parameters
     schedule_interval=None,
