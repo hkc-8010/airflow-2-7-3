@@ -3,7 +3,7 @@ airflow_db:
   outputs:
     dev:
       type: snowflake
-      account: gp21411
+      account: gp21411.us-east-1
       user: HEMKUMARCHHEDA
       password: HKc@8010
       role: HEMKUMARCHHEDA
