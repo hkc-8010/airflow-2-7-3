@@ -20,7 +20,7 @@ dbt_profile_overrides = DbtDag(
                 "database": "SANDBOX",
                 "role": "HEMKUMARCHHEDA",
                 "warehouse": "HUMANS",
-                "account": "gp21411",
+                "account": "gp21411.us-east-1",
                 "region": "us-east-1",
             },
         ),
