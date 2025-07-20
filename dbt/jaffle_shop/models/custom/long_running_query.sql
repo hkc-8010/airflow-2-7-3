@@ -54,7 +54,7 @@ computation_1 AS (
         random_factor,
         SQRT(POWER(random_value1, 2) + POWER(random_value2, 2)) as vector_length,
         SIN(random_value1 / 1000.0) * COS(random_value2 / 1000.0) as trig_result,
-        SYSTEM$WAIT({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
+        SYSTEM$WAIT({{ sleep_time_per_iteration // 3 }}) as wait_result  -- Use integer division //
     FROM large_dataset
     WHERE id <= 10000  -- Limit for performance
 ),
@@ -69,7 +69,7 @@ grouped_data AS (
         COUNT(*) as group_count,
         MIN(random_value1) as min_val1,
         MAX(random_value2) as max_val2,
-        SYSTEM$WAIT({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
+        SYSTEM$WAIT({{ sleep_time_per_iteration // 3 }}) as wait_result  -- Use integer division //
     FROM computation_1
     GROUP BY group_id
 ),
@@ -89,7 +89,7 @@ joined_data AS (
         g.sum_trig,
         g.group_count,
         (c.vector_length - g.avg_length) / NULLIF(g.std_length, 0) as z_score,
-        SYSTEM$WAIT({{ sleep_time_per_iteration / 3 }}) as wait_result  -- Sleep 1/3 of iteration time
+        SYSTEM$WAIT({{ sleep_time_per_iteration // 3 }}) as wait_result  -- Use integer division //
     FROM computation_1 c
     JOIN grouped_data g ON c.group_id = g.group_id
 ),
@@ -117,7 +117,7 @@ iteration_{{ i }} AS (
         z_score,
         ROW_NUMBER() OVER (PARTITION BY group_id ORDER BY z_score) as rank_in_group,
         {% if i < number_of_iterations - 1 %}
-        SYSTEM$WAIT({{ sleep_time_per_iteration / number_of_iterations }}) as wait_result  -- Distribute sleep across iterations
+        SYSTEM$WAIT({{ (sleep_time_per_iteration // number_of_iterations) }}) as wait_result  -- Use integer division //
         {% else %}
         NULL as wait_result  -- Skip sleep in the last iteration as we'll have a final sleep
         {% endif %}
