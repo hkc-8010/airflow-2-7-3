@@ -8,4 +8,5 @@ SELECT
     created_at,
     updated_at,
     value_2 as metric_2
-FROM raw_source_sales_7
+FROM {{ source('sales', 'raw_source_sales_7') }}
+
