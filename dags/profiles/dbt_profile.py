@@ -13,7 +13,7 @@ dbt_profile_example = DbtDag(
     # dbt/cosmos-specific parameters
     project_config=jaffle_shop_project_config,
     profile_config=ProfileConfig(
-        # these map to dbt/jaffle_shop/profiles.yml
+        # these map to dbt/jaffle_shop/profiles.yml (Snowflake config)
         profile_name="airflow_db",
         target_name="dev",
         profiles_yml_filepath=jaffle_shop_path / "profiles.yml",

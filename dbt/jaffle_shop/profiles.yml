@@ -2,12 +2,13 @@ airflow_db:
   target: dev
   outputs:
     dev:
-      type: postgres
-      host: frigid-relativity-1982-pgbouncer.frigid-relativity-1982.svc.cluster.local
-      user: frigid_relativity_1982_airflow
-      password: XKwtMF1Sf1k8GwVJlMyEg8xPwgi5soz5
-      port: 6543
-      dbname: frigid-relativity-1982-pgbouncer-metadata
-      schema: airflow
+      type: snowflake
+      account: gp21411
+      user: HEMKUMARCHHEDA
+      password: HKc@8010
+      role: HEMKUMARCHHEDA
+      database: SANDBOX
+      warehouse: HUMANS
+      schema: HEMKUMARCHHEDA
       threads: 4
-      sslmode: disable
+      region: us-east-1

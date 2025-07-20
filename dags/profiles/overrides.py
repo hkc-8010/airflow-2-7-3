@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from cosmos import DbtDag, ProfileConfig, RenderConfig
-from cosmos.profiles import PostgresUserPasswordProfileMapping
+from cosmos.profiles import SnowflakeUserPasswordProfileMapping
 from cosmos.constants import LoadMode
 
 from include.constants import jaffle_shop_project_config, venv_execution_config
@@ -13,9 +13,16 @@ dbt_profile_overrides = DbtDag(
         # these map to dbt/jaffle_shop/profiles.yml
         profile_name="airflow_db",
         target_name="dev",
-        profile_mapping=PostgresUserPasswordProfileMapping(
-            conn_id="airflow_metadata_db",
-            profile_args={"schema": "public"},
+        profile_mapping=SnowflakeUserPasswordProfileMapping(
+            conn_id="snowflake_default",
+            profile_args={
+                "schema": "HEMKUMARCHHEDA",
+                "database": "SANDBOX",
+                "role": "HEMKUMARCHHEDA",
+                "warehouse": "HUMANS",
+                "account": "gp21411",
+                "region": "us-east-1",
+            },
         ),
     ),
     execution_config=venv_execution_config,
