@@ -1,0 +1,154 @@
+
+version: 2
+
+models:
+
+  - name: staging_finance_041
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_049
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_059
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_062
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_064
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_071
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_079
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_080
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_090
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2
+
+  - name: staging_finance_099
+    description: "Staging layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: total_metric_1
+        description: Sum of metric 1
+      - name: avg_metric_2
+        description: Average of metric 2

@@ -1,0 +1,94 @@
+
+version: 2
+
+models:
+
+  - name: raw_marketing_001
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_marketing_004
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_marketing_027
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_marketing_028
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_marketing_030
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_marketing_033
+    description: "Raw layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2

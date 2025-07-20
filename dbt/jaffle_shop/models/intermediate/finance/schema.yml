@@ -1,0 +1,208 @@
+
+version: 2
+
+models:
+
+  - name: intermediate_finance_106
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_107
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_108
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_116
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_119
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_120
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_124
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_131
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_138
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_141
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_144
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_finance_151
+    description: "Intermediate layer model for finance domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records

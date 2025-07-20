@@ -1,0 +1,208 @@
+
+version: 2
+
+models:
+
+  - name: intermediate_product_101
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_103
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_105
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_109
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_113
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_125
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_128
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_135
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_140
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_142
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_145
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_product_153
+    description: "Intermediate layer model for product domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records

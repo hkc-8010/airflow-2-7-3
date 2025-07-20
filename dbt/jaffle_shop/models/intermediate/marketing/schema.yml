@@ -1,0 +1,293 @@
+
+version: 2
+
+models:
+
+  - name: intermediate_marketing_102
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_114
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_115
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_121
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_122
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_123
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_126
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_127
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_130
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_132
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_137
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_149
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_150
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_154
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_155
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_156
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_marketing_157
+    description: "Intermediate layer model for marketing domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records

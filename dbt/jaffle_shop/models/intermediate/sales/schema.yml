@@ -1,0 +1,157 @@
+
+version: 2
+
+models:
+
+  - name: intermediate_sales_100
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_110
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_111
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_112
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_118
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_129
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_143
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_148
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records
+
+  - name: intermediate_sales_159
+    description: "Intermediate layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: enhanced_metric_1
+        description: Enhanced metric 1
+      - name: enhanced_metric_2
+        description: Enhanced metric 2
+      - name: record_count
+        description: Count of records

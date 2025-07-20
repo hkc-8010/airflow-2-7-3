@@ -1,0 +1,109 @@
+
+version: 2
+
+models:
+
+  - name: raw_sales_002
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_016
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_019
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_025
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_026
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_032
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
+
+  - name: raw_sales_037
+    description: "Raw layer model for sales domain"
+    columns:
+
+      - name: id
+        description: Primary key
+      - name: name
+        description: Entity name
+      - name: created_at
+        description: Creation timestamp
+      - name: metric_1
+        description: Metric 1
+      - name: metric_2
+        description: Metric 2
