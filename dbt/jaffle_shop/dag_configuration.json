@@ -1,0 +1,30 @@
+{
+    "dag_id": "jaffle_shop_dbt",
+    "description": "Jaffle Shop DBT project - demonstrates basic customer and order data modeling",
+    "schedule_interval": "@daily",
+    "start_date": "2024-01-01",
+    "catchup": false,
+    "owner": "data_team",
+    "tags": ["dbt", "jaffle_shop", "example"],
+    "dbt_project_name": "jaffle_shop",
+    "dbt_project_path": "/usr/local/airflow/dbt/jaffle_shop",
+    "dbt_profile_name": "airflow_db",
+    "dbt_target": "dev",
+    "connection_id": "airflow_default",
+    "task_groups": {
+        "staging": {
+            "models": ["staging"],
+            "description": "Load and clean raw data"
+        },
+        "marts": {
+            "models": ["customers", "orders", "customer_analytics"],
+            "description": "Create business-ready data models",
+            "depends_on": ["staging"]
+        }
+    },
+    "test_after_each_model": true,
+    "vars": {
+        "start_date": "2023-01-01",
+        "test_run": false
+    }
+} 
