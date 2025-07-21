@@ -20,6 +20,11 @@
             "models": ["customers", "orders", "customer_analytics"],
             "description": "Create business-ready data models",
             "depends_on": ["staging"]
+        },
+        "long_running": {
+            "models": ["long_running_query"],
+            "description": "Long-running test model (~15 minutes execution time)",
+            "depends_on": ["marts"]
         }
     },
     "test_after_each_model": true,

@@ -136,3 +136,37 @@ models:
         description: Percentage of monthly revenue contributed by this segment
         tests:
           - not_null
+
+  - name: long_running_query
+    description: >
+      A test model designed to run for approximately 15 minutes on Snowflake.
+      This model uses a combination of complex queries, data processing, and 
+      explicit SYSTEM$WAIT() calls to ensure consistent execution time for 
+      testing long-running DAG scenarios. It generates synthetic data and 
+      performs iterative calculations with controlled delays.
+    
+    columns:
+      - name: group_id
+        description: Identifier for the data group
+        tests:
+          - not_null
+
+      - name: count_records
+        description: Number of records processed in each group
+        tests:
+          - not_null
+
+      - name: avg_adjusted_length
+        description: Average adjusted vector length for the group
+
+      - name: avg_z_score
+        description: Average z-score for the group
+
+      - name: min_trig_adjusted
+        description: Minimum adjusted trigonometric result
+
+      - name: max_trig_adjusted
+        description: Maximum adjusted trigonometric result
+
+      - name: sum_ranks
+        description: Sum of ranking values within the group
